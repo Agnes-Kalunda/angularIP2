@@ -24,10 +24,22 @@ this.githubProfile = data,
        
     });
 
-     
+this.githubService.getRepos(this.githubUserQuery).subscribe(next(data)=>{
+  this.githubProfile=data,
+}, error(error)=>{
+  this .errorMessage=error,
+});     
   }
 
   ngOnInit(): void {
   }
 
 }
+function next(data: any): any {
+  throw new Error('Function not implemented.');
+}
+
+function data(data: any): any {
+  throw new Error('Function not implemented.');
+}
+
