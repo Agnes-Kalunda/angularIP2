@@ -18,12 +18,20 @@ export class GithubService {
   public getProfile(_searchQuery: any):Observable<any
   >{
     let dataURL = 'https://api.github.com/users/${searchQuery}?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
-  return this.httpClient.get(dataURL).pipe(
+  return this.httpClient.get<any>(dataURL).pipe(
     retry(count: 1),
     catchError(this.handleErrors)
   );
   }
 
+  public getRepos(_searchQuery: any):Observable<any
+  >{
+    let dataURL = 'https://api.github.com/users/${searchQuery}?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
+  return this.httpClient.get<any>(dataURL).pipe(
+    retry(count: 1),
+    catchError(this.handleErrors)
+  );
+  }
   public handleErrors(error:HttpErrorResponse){
     let errorMessage:string;
     if(error.error instanceof ErrorEvent){
