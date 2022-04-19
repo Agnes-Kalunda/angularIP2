@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { count } from 'console';
+// import { count } from 'console';
 import { CLIENT_ID , CLIENT_SECRET } from 'credentials/GithubCred';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs';
@@ -19,7 +19,7 @@ export class GithubService {
   >{
     let dataURL = 'https://api.github.com/users/${searchQuery}?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
   return this.httpClient.get<any>(dataURL).pipe(
-    retry(count: 1),
+    // retry(count :1),
     catchError(this.handleErrors)
   );
   }
@@ -28,7 +28,7 @@ export class GithubService {
   >{
     let dataURL = 'https://api.github.com/users/${searchQuery}/repos?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
   return this.httpClient.get<any[]>(dataURL).pipe(
-    retry(count: 1),
+    // retry(count: 1),
     catchError(this.handleErrors)
   );
   }

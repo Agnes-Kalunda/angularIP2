@@ -1,35 +1,40 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { error } from 'console';
+// import { error } from 'console';
 import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-github-app',
   templateUrl: './github-app.component.html',
-  styleUrls: ['./github-app.component.css']
+  styleUrls: ['./github-app.component.css'],
 })
 export class GithubAppComponent implements OnInit {
 
   public githubUserQuery!: string;
-  public githubProfile:any;
+  public githubProfile: any;
   public githubRepos: any[] = [];
   public errorMessage!: string;
   githubService: any;
 
-  constructor(service : GithubService) { }
-  public searchUser(){
-    this.githubService.getProfile(this.githubUserQuery).subscribe(next(data)=>{
-this.githubProfile = data, 
-    },error(error)=>{
-      this.errorMessage=error,
-       
-    });
+  constructor(private Service: GithubService) { }
 
-this.githubService.getRepos(this.githubUserQuery).subscribe(next(data)=>{
-  this.githubProfile=data,
-}, error(error)=>{
-  this .errorMessage=error,
-});     
-  }
+
+  searchUser() {
+    this.Service.getProfile(this.githubUserQuery).subscribe(next((data: any)=> {
+      this.githubProfile = data;
+    }),
+    // error.arguments(error)=> {
+    //   this.errorMessage = error,
+
+    );
+
+    this.githubService.getRepos(this.githubUserQuery).subscribe(next((data: any) => {
+      this.githubProfile = data;
+}),
+      // error.arguments(error) => {
+      //   this.errorMessage = error,
+);   
+}
 
   ngOnInit(): void {
   }

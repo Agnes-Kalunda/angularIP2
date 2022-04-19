@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../github.service';
 
 @Component({
   selector: 'app-github-profile-data',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./github-profile-data.component.css']
 })
 export class GithubProfileDataComponent implements OnInit {
+  public githubProfile : any = [];
+  
+
+  
+
 
   constructor() { }
 
