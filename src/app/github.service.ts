@@ -24,10 +24,10 @@ export class GithubService {
   );
   }
 
-  public getRepos(_searchQuery: any):Observable<any
+  public getRepos(_searchQuery: any):Observable<any[]
   >{
-    let dataURL = 'https://api.github.com/users/${searchQuery}?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
-  return this.httpClient.get<any>(dataURL).pipe(
+    let dataURL = 'https://api.github.com/users/${searchQuery}/repos?client_id= ${CLIENT_ID}%client_secret= ${CLIENT_SECRET}';
+  return this.httpClient.get<any[]>(dataURL).pipe(
     retry(count: 1),
     catchError(this.handleErrors)
   );
