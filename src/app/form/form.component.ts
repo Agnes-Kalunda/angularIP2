@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { GetApiService } from '../get-api.service';
 
 @Component({
   selector: 'app-form',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  @Output() newUsername=new EventEmitter ()
+  username:string = ''
 
-  ngOnInit(): void {
+  inputClick(username:string){
+    this.newUsername.emit(username)
   }
 
-}
+
+  constructor(private getApiService:GetApiService) { }
+
+  ngOnInit(): void {
+  }}
