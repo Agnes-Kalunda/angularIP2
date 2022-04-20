@@ -6,13 +6,18 @@
 
 <div class="container-fluid users">
   <div *ngIf="user" class="container">
-    <h1>{{user.login}}</h1>
-    <h2>Followers:{{user.followers}}</h2>
-    <h2>Following:{{user.following}}</h2>
-    <h2>Member since:{{user.created_at}}</h2>
-    <h2>Repos:{{user.public_repos}}</h2>
-    <img src="{{user.avatar_url}}" height="100px"alt="">
+   <div class="info">
+    <img class="image" src="{{user.avatar_url}}" height="100px"alt="">
+    <div class="info2">
+      <h2>{{user.login}}</h2>
+      <h2>Followers:{{user.followers}}</h2>
+      <h2>Following:{{user.following}}</h2>
+      <h2>Member since:{{user.created_at}}</h2>
+      <h2>Repos:{{user.public_repos}}</h2>
+    </div>
+  </div> 
     <a target="blank" href="{{user.html_url}}"><button  > View  </button></a>
+  
   
 
    <h1>My Repositories</h1>

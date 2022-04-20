@@ -1,4 +1,10 @@
-#repo{
+.repo{
     background-color: whitesmoke;
     display: flex;
+    justify-content: space-evenly;
+    
+}
+
+.image{
+    height: 40%;
 }

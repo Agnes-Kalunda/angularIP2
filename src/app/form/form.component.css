@@ -8,3 +8,16 @@
       0 16px 8px rgba(0, 0, 0, 0.09),
       0 32px 16px rgba(0, 0, 0, 0.09);
   }
+
+  /* .btn{
+    border: solid 2px black;
+    margin-top: 3%;
+  } */
+  #found{
+    margin-top: 5%;
+    height: 7%;
+  }
+
+  #found :hover{
+    color: blue;
+  }
