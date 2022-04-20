@@ -1,5 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { GetApiService } from '../get-api.service';
+
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
@@ -8,29 +10,62 @@ import { GetApiService } from '../get-api.service';
 
 export class UsersComponent implements OnInit {
 
-  username = ''
+  username!: string;
 
-  user!:any;
-  repo!:any;
-  constructor(private getApiService:GetApiService){
-  }
-  getData(newUsername:any):void{
-    this.username = newUsername;
-    this.getRepoData=(newUsername)
-    this.getUserData =(newUsername)
-  } 
-  getRepoData(username:string):void{
-    this.getApiService.getUserRepo(username).subscribe((repo)=>{
-      this.repo = repo
-      console.log(repo)
+  user: any = [];
+  repo: any = [];
+
+  constructor(private getApiService: GetApiService) {
+
+    this.getApiService.getUsers().subscribe(user => {
+      this.user = user;
+    })
+    this.getApiService.getUserRepo().subscribe(repo => {
+      this.repo = repo;
     })
   }
-  getUserData(username:string):void{
-    this.getApiService.searchUsers(username).then((user) =>(this.user = user))
-    console.log(username)
+
+  searchUser() {
+    this.getApiService.addUser(this.username)
+    this.getApiService.getUsers().subscribe(user => {
+      this.user = user;
+    })
+    this.getApiService.getUserRepo().subscribe(repo => {
+      this.repo = repo;
+    })
   }
   ngOnInit(): void {
-    this.getRepoData(this.username)
-    this.getUserData(this.username)
+
+
   }
+
 }
+
+
+
+
+
+
+
+  // getData(newUsername:any):void{
+  //   this.username = newUsername;
+  //   this.getRepoData=(newUsername)
+  //   this.getUserData =(newUsername)
+
+
+
+  // }
+
+  // getRepoData(username:string):void{
+  //   this.getApiService.getUserRepo(username).subscribe((repo)=>{
+  //     this.repo = repo
+  //     console.log(repo)
+  //   })
+  // }
+
+  // getUserData(username:string):void{
+  //   this.getApiService.searchUsers(username).then((user) =>(this.user = user))
+  //   console.log(username)
+  // }
+
+

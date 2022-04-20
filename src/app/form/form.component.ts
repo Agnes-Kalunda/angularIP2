@@ -7,12 +7,22 @@ import { GetApiService } from '../get-api.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  user:any=[];
+  repo: any=[];
+  username!:string;
 
-  @Output() newUsername=new EventEmitter ()
-  username:string = ''
+  // @Output() newUsername=new EventEmitter ()
+  // username:string = ''
 
-  inputClick(username:string){
-    this.newUsername.emit(username)
+ 
+  searchUser() {
+    this.getApiService.addUser(this.username)
+    this.getApiService.getUsers().subscribe(user => {
+      this.user = user;
+    })
+    this.getApiService.getUserRepo().subscribe(repo => {
+      this.repo = repo;
+    })
   }
 
 

@@ -3,7 +3,7 @@
 /* span:hover{
     cursor: pointer;
 }*/
-*{
+body{
     color: black;
     background-color: skyblue;
 } 

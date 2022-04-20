@@ -1,20 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { lastValueFrom, Observable } from 'rxjs';
+// import { lastValueFrom, Observable } from 'rxjs';
+import { map } from 'rxjs';
+import { User } from './users';
 @Injectable({
   providedIn: 'root',
 })
 export class GetApiService {
 
-  username = 'Agnes-kalunda';
+  username: string;
+  users!: User;
+  repo: any;
 
-  base_url = 'https://api.github.com';
-  async searchUsers(username: string) {
-    const search = this.http.get<any>(`${this.base_url}/users/${username}`);
-    return await lastValueFrom(search).then((response) => response);
+  base_url = 'https://api.github.com/'
+
+  constructor(private http: HttpClient) {
+    this.username = 'Agnes-kalunda';
   }
-  getUserRepo(username: string): Observable<any> {
-    return this.http.get<any>(`${this.base_url}/users/${username}/repos`);
+  getUsers() {
+    return this.http.get(`${this.base_url}/users/` + this.username).pipe(map(result => result));
+    //  lastValueFrom().then((response) => response);
   }
-  constructor(private http: HttpClient) {}
+  getUserRepo() {
+    return this.http.get(`${this.base_url}/users/` + this.username + "/repo").pipe(map(result => result));
+
+  }
+  addUser(username: string) {
+    this.username = username;
+
+
+  }
+  addRepo(repo: any) {
+    this.repo = repo;
+  }
 }

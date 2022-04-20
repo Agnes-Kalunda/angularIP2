@@ -6,20 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { FormComponent } from './form/form.component';
+import { GetApiService } from './get-api.service';
+import { RepositoriesComponent } from './repositories/repositories.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     FormComponent,
+    RepositoriesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule
+
   ],
-  providers: [],
+  providers: [GetApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,33 @@
-<app-form (newUsername)="getData ($event)" ></app-form>
+<!-- <app-form (newUsername)="getData ($event)" ></app-form> -->
+<app-form></app-form>
+
+
+
 
 <div class="container-fluid users">
-  <div class="container">
+  <div *ngIf="user" class="container">
     <h1>{{user.login}}</h1>
     <h2>Followers:{{user.followers}}</h2>
     <h2>Following:{{user.following}}</h2>
+    <h2>Member since:{{user.created_at}}</h2>
     <h2>Repos:{{user.public_repos}}</h2>
     <img src="{{user.avatar_url}}" height="100px"alt="">
-    <a target="blank" href="{{user.html_url}}"><button  > Click me </button></a>
+    <a target="blank" href="{{user.html_url}}"><button  > View  </button></a>
   
+
+   <h1>My Repositories</h1>
+<!-- 
+    <p>{{user.name}}</p>
+    <p>DESCRIPTION:{{user.description}}</p>
+    <p>LANGUAGES:{{user.language}}</p>
+    <p>FORKS:{{user.fork_count}}</p>
+    <p>STARS:{{user.stargazers_count}}</p>
+  -->
+  <app-repositories></app-repositories>
   </div>
   
   
-  <div *ngFor="let repo of repo">
+  <!-- <div *ngFor="let repo of repo">
   
     <p>{{repo.html_url}}</p>
     <p>{{repo.name}}</p>
@@ -21,5 +36,5 @@
     <p>{{repo.language}}</p>
     <p>{{repo.fork_count}}</p>
     <p>{{repo.stargazers_count}}</p>
-  </div>
+  </div> -->
 </div>
