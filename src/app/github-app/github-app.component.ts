@@ -1,7 +1,7 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 // import { error } from 'console';
-import { GithubService } from '../github.service';
+import { GithubService } from '../get-api.service';
 
 @Component({
   selector: 'app-github-app',
