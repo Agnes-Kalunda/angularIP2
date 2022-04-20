@@ -6,7 +6,7 @@ import { lastValueFrom, Observable } from 'rxjs';
 })
 export class GetApiService {
 
-  username = 'KellyKiiru';
+  username = 'Agnes-kalunda';
 
   base_url = 'https://api.github.com';
   async searchUsers(username: string) {
