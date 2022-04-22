@@ -1,16 +1,12 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { GetApiService } from './get-api.service';
+import { Component, } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  title(title: any) {
-    throw new Error('Method not implemented.');
+export class AppComponent {
+  title= 'angular2';
   }
 
-  ngOnInit(): void {
-
-  }}
+  
