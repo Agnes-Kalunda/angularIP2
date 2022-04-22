@@ -19,4 +19,13 @@ getUser(){
   return this.http.get('https://api.github.com/users/' + this.username)
   .pipe(map(result => result));
 }
+
+getRepo(){
+  return this.http.get('https://api.github.com/users/' + this.username +'/repos')
+  .pipe(map(result => result));
 }
+updateUser(username:string){
+  this.username =username;
+    }
+}
+
