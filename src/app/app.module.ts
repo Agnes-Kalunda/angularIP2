@@ -8,12 +8,14 @@ import { LandingComponent } from './landing/landing.component';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UsersComponent } from './users/users.component';
 @NgModule({
   declarations: [
     AppComponent,
     RepositoryComponent,
     UserComponent,
-    LandingComponent
+    LandingComponent,
+    UsersComponent
   ], 
   imports: [
     BrowserModule,

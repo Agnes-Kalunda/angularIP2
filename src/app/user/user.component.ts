@@ -19,6 +19,16 @@ export class UserComponent implements OnInit {
       })
 
     }
+    
+    searchInfo(){
+      this.userService.updateUser(this.username)
+      this.userService.getUser().subscribe(users=>{
+       this.users = users
+       })
+       this.userService.getRepo().subscribe(repos=>{
+         this.repos = repos
+       })
+    }
     ngOnInit(): void {
       throw new Error('Method not implemented.');
     }
