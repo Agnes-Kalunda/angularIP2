@@ -8,7 +8,7 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
   users: any=[];
   repos:any =[];
-  username!:string;
+  username:any;
 
   constructor(private userService:UserService) {
     this.userService.getUser().subscribe(users=>{

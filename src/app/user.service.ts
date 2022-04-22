@@ -27,5 +27,9 @@ getRepo(){
 updateUser(username:string){
   this.username =username;
     }
-}
+    updateRepo(repos:any){
+      this.repos=repos;
+        }
+      }
+
 

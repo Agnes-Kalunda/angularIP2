@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-repository',
@@ -7,8 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RepositoryComponent implements OnInit {
 
-  constructor() { }
+  users: any =[]
+  repos:any =[];
+  username!:any;
+  userService: any;
+  
 
+  constructor() {
+    this.userService.getUser().subscribe((users: any)=>{
+      this.users = users
+      })
+      this.userService.getRepo().subscribe((repos: any)=>{
+        this.repos = repos
+        })
+   }
+searchInfo(){
+  this.userService.updateRepo(this.repos)
+      this.userService.getRepo().subscribe((repos: any)=>{
+        this.repos = repos
+        })
+}
   ngOnInit(): void {
   }
 

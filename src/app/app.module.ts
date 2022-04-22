@@ -15,7 +15,7 @@ import { UsersComponent } from './users/users.component';
     RepositoryComponent,
     UserComponent,
     LandingComponent,
-    UsersComponent
+    UsersComponent,
   ], 
   imports: [
     BrowserModule,
